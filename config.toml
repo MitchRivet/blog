@@ -3,7 +3,7 @@ title = "Mitch Rivet"
 languageCode = "en-us"
 disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration
 MetaDataFormat = "toml"
-theme = "casper"
+theme = "hugo-theme-casper"
 paginate = 10
 
 [author]
