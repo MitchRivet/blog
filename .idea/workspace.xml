@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7da8f22f-52c9-443d-9aa4-cb14951e0756" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/themes/hemingway" afterPath="$PROJECT_DIR$/public/themes/hemingway" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/themes/hyde-x" afterPath="$PROJECT_DIR$/public/themes/hyde-x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="7da8f22f-52c9-443d-9aa4-cb14951e0756" name="Default" comment="" />
     <ignored path="blog_hugo.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
