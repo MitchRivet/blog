@@ -1,4 +1,4 @@
-baseurl = "http://mitchrivet.com"
+baseurl = "http://mitchrivet.com/blog/"
 title = "Mitch Rivet"
 languageCode = "en-us"
 disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration
