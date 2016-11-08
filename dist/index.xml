@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mitch Rivet</title>
-    <link>http://mitchrivet.com/index.xml</link>
+    <link>http://mitchrivet.com/blog/index.xml</link>
     <description>Recent content on Mitch Rivet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Sep 2016 13:42:17 -0700</lastBuildDate>
-    <atom:link href="http://mitchrivet.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://mitchrivet.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Welcome</title>
-      <link>http://mitchrivet.com/welcome/</link>
+      <link>http://mitchrivet.com/blog/welcome/</link>
       <pubDate>Thu, 22 Sep 2016 13:42:17 -0700</pubDate>
       
-      <guid>http://mitchrivet.com/welcome/</guid>
+      <guid>http://mitchrivet.com/blog/welcome/</guid>
       <description>&lt;p&gt;my first blog post. what am i going to say?&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Why Blog?</title>
-      <link>http://mitchrivet.com/blog/2016/09/22/why-blog/</link>
+      <link>http://mitchrivet.com/blog/blog/2016/09/22/why-blog/</link>
       <pubDate>Thu, 22 Sep 2016 13:42:17 -0700</pubDate>
       
-      <guid>http://mitchrivet.com/blog/2016/09/22/why-blog/</guid>
+      <guid>http://mitchrivet.com/blog/blog/2016/09/22/why-blog/</guid>
       <description>&lt;p&gt;What is the purpose of blogging? Who really gives a shit?&lt;/p&gt;
 
 &lt;p&gt;My purpose for this space is the following:
@@ -35,10 +35,10 @@ Have you ever started a great project and let it die a slow, misreable death? I 
     
     <item>
       <title>another page</title>
-      <link>http://mitchrivet.com/other_page/</link>
+      <link>http://mitchrivet.com/blog/other_page/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://mitchrivet.com/other_page/</guid>
+      <guid>http://mitchrivet.com/blog/other_page/</guid>
       <description>&lt;p&gt;this is another page&lt;/p&gt;
 </description>
     </item>
