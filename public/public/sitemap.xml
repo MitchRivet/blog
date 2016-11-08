@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://mitchrivet.com/</loc>
+    <lastmod>2016-09-22T13:42:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mitchrivet.com/blog/2016/09/22/welcome/</loc>
+    <lastmod>2016-09-22T13:42:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mitchrivet.com/welcome/</loc>
+    <lastmod>2016-09-22T13:42:17-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mitchrivet.com/other_page/</loc>
+  </url>
+  
+</urlset>
