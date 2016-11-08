@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mitchrivet.com/blog/</loc>
+    <loc>http://mitchrivet.github.io/blog/</loc>
     <lastmod>2016-09-22T13:42:17-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://mitchrivet.com/blog/welcome/</loc>
+    <loc>http://mitchrivet.github.io/blog/welcome/</loc>
     <lastmod>2016-09-22T13:42:17-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://mitchrivet.com/blog/blog/2016/09/22/why-blog/</loc>
+    <loc>http://mitchrivet.github.io/blog/blog/2016/09/22/why-blog/</loc>
     <lastmod>2016-09-22T13:42:17-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://mitchrivet.com/blog/other_page/</loc>
+    <loc>http://mitchrivet.github.io/blog/other_page/</loc>
   </url>
   
 </urlset>
