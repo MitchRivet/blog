@@ -1,4 +1,4 @@
-baseurl = "http://mitchrivet.github.io/blog/"
+baseurl = "http://mitchrivet.github.io/"
 title = "Mitch Rivet"
 languageCode = "en-us"
 disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration
@@ -31,10 +31,10 @@ paginate = 10
   url = "/posts"
 
 [[menu.main]]
-  name = "Projects"
+  name = "Portolio"
   weight = -120
-  identifier = "projects"
-  url = "/projects"
+  identifier = "portfolio"
+  url = "/portfolio"
 
 [[menu.main]]
   name = "About"
@@ -59,6 +59,7 @@ paginate = 10
     authorlocation = "Portland, Oregon"
     authorwebsite = "http://mitchrivet.com"
     bio= "just a guy who likes computers"
+
 
     # Hide estimated reading time for posts.
     # Default (if omitted) is false.
@@ -101,6 +102,7 @@ paginate = 10
     youtube = ""
 
     cover="images/sedona.JPG"
+    logo="images/MR.gif"
     # Other social-like sidebar links
     rss = false  # switch to true to enable RSS icon link
     flattr = ""  # populate with your flattr uid
