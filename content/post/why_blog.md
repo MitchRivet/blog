@@ -1,7 +1,7 @@
 +++
-date = "2016-09-22T13:42:17-07:00"
+date = "2016-11-03T22:17:00+02:00"
 title = "Why Blog?"
-tags = ["productivity", "blogging"]
+tags = ["productivity", "blog"]
 
 +++
 
