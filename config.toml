@@ -1,4 +1,4 @@
-baseurl = "mitchrivet.github.io"
+baseurl = "http://mitchrivet.github.io/"
 title = "Mitch Rivet"
 languageCode = "en-us"
 disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration

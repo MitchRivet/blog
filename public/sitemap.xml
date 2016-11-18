@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/www.mitchrivet.com/</loc>
+    <loc>http://mitchrivet.github.io/</loc>
     <lastmod>2016-11-06T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.mitchrivet.com/analyzing-reddit-comments-scraping-part-1</loc>
+    <loc>http://mitchrivet.github.io/analyzing-reddit-comments-scraping-part-1</loc>
     <lastmod>2016-11-06T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.mitchrivet.com/why-blog</loc>
+    <loc>http://mitchrivet.github.io/why-blog</loc>
     <lastmod>2016-11-03T22:17:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.mitchrivet.com/about/</loc>
+    <loc>http://mitchrivet.github.io/about/</loc>
   </url>
   
 </urlset>
