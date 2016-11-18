@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mitch Rivet</title>
+    <link>www.mitchrivet.com/tags/productivity/index.xml</link>
+    <description>Recent content on Mitch Rivet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="www.mitchrivet.com/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why Blog?</title>
+      <link>/www.mitchrivet.com/why-blog</link>
+      <pubDate>Thu, 03 Nov 2016 22:17:00 +0200</pubDate>
+      
+      <guid>/www.mitchrivet.com/why-blog</guid>
+      <description>
+
+&lt;p&gt;Here are the practical reasons I see for maintaining a blog:&lt;/p&gt;
+
+&lt;h2 id=&#34;1-generate-better-ideas&#34;&gt;1. Generate better ideas&lt;/h2&gt;
+
+&lt;p&gt;Although internet criticism can be exceedingly negative, there is a lot of important feedback to be gained from opening your projects, plans, and thoughts to the online world. How can you assume that your ideas are worth anything without allowing them to be tested and critiqued? Writing also forces us to clarify our thinking, truly owning our ideas. Blogging can help you step out of your comfort zone into the arena of public discourse.&lt;/p&gt;
+
+&lt;h2 id=&#34;2-help-others-by-sharing-what-you-learn&#34;&gt;2. Help others by sharing what you learn&lt;/h2&gt;
+
+&lt;p&gt;Even though there are tons of online resources for learning programming topics, there is always value in sharing tutorials for niche subjects and explaining ideas using your own analogies and mental processes. I have often found explanations shared to me by my peers to be the most memorable. It&amp;rsquo;s also commonly said that the best way to learn something yourself is to &lt;a href=&#34;http://www.futurity.org/learning-students-teaching-741342&#34;&gt;teach others&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-improve-your-process-by-regularly-collecting-data&#34;&gt;3. Improve your process by regularly collecting data&lt;/h2&gt;
+
+&lt;h2 id=&#34;4-create-social-accountability&#34;&gt;4. Create social accountability&lt;/h2&gt;
+
+&lt;h2 id=&#34;5-if-your-work-is-not-online-it-doesn-t-exist&#34;&gt;5. &amp;ldquo;If your work is not online, it doesn&amp;rsquo;t exist&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Taken from the lovely book [&amp;ldquo;Show Your Work!&amp;rdquo; by Austin Kleon]()&lt;/p&gt;
+
+&lt;h2 id=&#34;6-give-others-insight-into-what-you-are-doing-right-now&#34;&gt;6. Give others insight into what you are doing right now&lt;/h2&gt;
+
+&lt;p&gt;I plan to include software development tutorials, notes from the topics I&amp;rsquo;m currently studying, as well as essays about music and audio production. Whenever I finish a book, I will also share the notes I took and my opinion of it, inspired by &lt;a href=&#34;https://sivers.org/book&#34;&gt;Derek Sivers&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

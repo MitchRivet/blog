@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+
+
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Analyzing Reddit Comments: Scraping (Part 1)"/>
+<meta name="twitter:description" content="A place to start when getting into data science is to find data sets that are personally relevant and/or interesting. one place i like to get data to understand more about internet discourse is reddit.
+How to scrape reddit if we want to download data from reddit, we essentially have two options. one is making an oauth request which includes logging into the reddit api with a reddit account. the downside to this method is that each user is limited to 60 oauth requests per hour, which makes it hard to download an entire comment thread and all of the relevant user meta data from comments in the thread (popular discussions usually break over 1,000 comments)."/>
+
+
+
+  	<meta property="og:title" content=" Analyzing Reddit Comments: Scraping (Part 1) &middot;  Mitch Rivet" />
+  	<meta property="og:site_name" content="Mitch Rivet" />
+  	<meta property="og:url" content="/www.mitchrivet.com/analyzing-reddit-comments-scraping-part-1" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-11-06T22:17:00&#43;02:00" />
+
+    
+    <meta property="og:article:tag" content="tutorial" />
+    
+    <meta property="og:article:tag" content="beginner" />
+    
+    <meta property="og:article:tag" content="NodeJs" />
+    
+    <meta property="og:article:tag" content="ExpressJs" />
+    
+    <meta property="og:article:tag" content="data-science" />
+    
+    
+
+    <title>
+       Analyzing Reddit Comments: Scraping (Part 1) &middot;  Mitch Rivet
+    </title>
+
+    <meta name="description" content="Software Engineer/ Musician" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/www.mitchrivet.comimages/favicon.ico">
+	  <link rel="apple-touch-icon" href="/www.mitchrivet.comimages/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/www.mitchrivet.comcss/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/www.mitchrivet.comcss/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+      
+          <link href="/www.mitchrivet.comindex.xml" rel="alternate" type="application/rss+xml" title="Mitch Rivet" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.17" />
+
+    <link rel="canonical" href="/www.mitchrivet.com/analyzing-reddit-comments-scraping-part-1" />
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/www.mitchrivet.com/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/www.mitchrivet.com/portfolio">Portolio</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/www.mitchrivet.com/about">About</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="/www.mitchrivet.comindex.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="/www.mitchrivet.com"><img src="/www.mitchrivet.comimages/MR.gif" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Analyzing Reddit Comments: Scraping (Part 1)</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-11-06T22:17:00&#43;02:00">
+            Nov 6, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="/www.mitchrivet.comtags/tutorial/">#tutorial</a></span>
+         
+          <span class="post-tag small"><a href="/www.mitchrivet.comtags/beginner/">#beginner</a></span>
+         
+          <span class="post-tag small"><a href="/www.mitchrivet.comtags/nodejs/">#NodeJs</a></span>
+         
+          <span class="post-tag small"><a href="/www.mitchrivet.comtags/expressjs/">#ExpressJs</a></span>
+         
+          <span class="post-tag small"><a href="/www.mitchrivet.comtags/data-science/">#data-science</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>A place to start when getting into data science is to find data sets that are personally relevant and/or interesting. one place i like to get data to understand more about internet discourse is reddit.</p>
+
+<h2 id="how-to-scrape-reddit">How to scrape reddit</h2>
+
+<p>if we want to download data from reddit, we essentially have two options. one is making an oauth request which includes logging into the reddit api with a reddit account. the downside to this method is that each user is limited to 60 oauth requests per hour, which makes it hard to download an entire comment thread and all of the relevant user meta data from comments in the thread (popular discussions usually break over 1,000 comments).</p>
+
+<p>another option is to scrape reddit, or in other words use a server to visit web pages and actually download the html content we&rsquo;re looking for ourselves, which we can then parse into whatever relevant bits we are looking for. reddit makes this process even one step easier by exposing most of their endpoints as json strings. we can see this by going to any thread on reddit and attaching a &lsquo;/.json&rsquo; to the end of the url. this allows us to easily convert these giant strings straight to json without having to create our own structure. the downside of this method is that we sometimes end up with incomplete data sets. consider the links on reddit which say &lsquo;more comments&rsquo; -&gt; by scraping reddit our data will include this &lsquo;more comments&rsquo; link without us being able to access that data directly. we could tell our server to collapse all those links, but lets just start with a general data set to get going.</p>
+
+<p>lets use node and expressjs to do this. we start by npm installing and setting up a basic expressjs app. expressjs is a routing framework for nodejs, a javascript development environment for creating servers.</p>
+
+<pre><code class="javascript">
+
+    //declare our initial dependencies
+    var express = require('express');
+    var request = require('request');
+
+    //initialize express
+    var app = express();
+
+    app.get('/scrape', (req, res) => {
+        res.json({message: 'this is your endpoint'});
+    });
+
+    app.listen('8081');     
+
+    console.log('Listening on port 8081');
+    exports = module.exports = app;
+
+</pre></code>
+
+
+lets save this file as 'reddit_request.js'. we can now fire up our server by opening the command line into the directory where we saved this file and running:
+
+<pre><code>node reddit_request.js</code></pre>
+
+<p>Thanks to our console.log, we should get a message printed in the terminal saying &lsquo;Listening on port 8081&rsquo;. If everything is working correctly, we should be able to open our web browser to localhost:8081/scrape and see the json we returned fromt that endpoint.</p>
+
+<p>if that&rsquo;s all working, we have just created a server with an endpoint called &lsquo;/scrape&rsquo;. when use express to do our routing, we can use our client to make a get request to the server.</p>
+
+<h2 id="making-requests">Making Requests</h2>
+
+<p>Now lets use the request module to download the content we want from Reddit. Request is a built in NodeJS module and can be used to make HTTP and HTTPS requests, allowing us to download html or in this case, JSON strings. We are going to modify our endpoint like this:</p>
+
+<pre><code class="javascript">
+
+    //
+    //
+
+    app.get('/scrape', (req, res) => {
+        var url = 'https://www.reddit.com/r/politics/comments/5bu1u6/if_you_vote_for_trump_you_own_the_racism_yes_you/.json';
+
+        //note we won't be using the html return value in the callback, but I included it so you would know it's there
+        request('url', (err, response, html) => {
+            if (err) {
+                console.log(err);
+            } else {
+                let commentJSON = JSON.parse(response.body);
+                res.json(commentJSON);
+            }
+            });
+    });
+
+    //
+    //
+
+</code></pre>
+
+<p>Now, reload the server with the &lsquo;node reddit_request.js&rsquo; command, make the same request to localhost:8081/scrape in your client. you should see a giant mess of json that is a replica of whatever thread you were looking at. I recommend using chrome and a chrome module to make the JSON collapsable and much more readable.</p>
+
+<h2 id="parsing-comments">Parsing Comments</h2>
+
+<p>Notice that the structure of the comments is nested in the same way they are visible on the html page. what if we want to analyze each comment individually? we would want to place each comment into a flat array. if we want to get a structure like this we will need to use recursion. We essentially want the computer to go through each comment and ask &ldquo;does this comment have any replies? if yes, then i will run the same operation of the array of comments inside of the reply property. if not, then i will continue processing the top level of the comments array&rdquo;.</p>
+
+<p>For this task, we can use a new syntax to es6 called generators. Add the following function globally, above your &lsquo;/scrape&rsquo; endpoint. We will still need to call the function later on, but lets first define and understand it.</p>
+
+<pre><code class="javascript">
+    //
+    //
+
+    //we're passing in all of our returned comments
+    function *findReplies(comments) {
+        if (!comment) {return ;}
+
+        //looping through all of the comments
+        for (var i = 0; i < comments.length; i++) {
+
+            //which ever step of the array we are on, grab the data
+            var commentMeta = comments[i].data;
+
+            //checking that the comment was not deleted    
+            if (commentMeta.body && commentMeta.author !== "[deleted]") {
+
+              allWordsString = allWordsString + commentMeta.body + '';
+              var score = sentiment(commentMeta.body);
+
+              yield {
+                author: commentMeta.author,
+                body: commentMeta.body,
+                score: score
+              };
+            }
+
+            if (commentMeta.replies) {
+              yield *findReplies(commentMeta.replies.data.children);
+            }
+          }
+    }
+
+    app.get('/scrape', (req, res) => {
+
+    //
+    //
+</code></pre>  
+
+<p>Every time we hit a yield statement in this function, whatever we yield will be part of a larger return. This happens in two places: the first when we grab the comment meta data we are looking for, and the second when we call the generator itself if the comment contains comments within. A function calling itself is <a href="https://en.wikipedia.org/wiki/Recursion">Recursion</a>. This syntax yields itself nicely to what we are trying to do.</p>
+
+<p>Now, how do we call this function?</p>
+
+<pre><code class="javascript">
+//
+//
+
+app.get('/scrape', (req, res) => {
+
+    var allComments = [];
+
+    var url = 'https://www.reddit.com/r/politics/comments/5bu1u6/if_you_vote_for_trump_you_own_the_racism_yes_you/.json';
+
+    request('url', (err, response, html) => {
+        if (err) {
+            console.log(err);
+        } else {
+            let commentJSON = JSON.parse(response.body);
+            let header = response.body[0];
+            let comments = commentJSON[1].data.children;
+
+            var getReply = findReplies(comments);
+            var replyGrab = getReply.next();
+
+            //the generator has a state that we can manage inside of a while statement
+            while (!replyGrab.done) {
+              allComments.push(replyGrab.value);
+              replyGrab = getReply.next();
+            }
+
+            //once the generator is finished, we can send our parsed data back to the client
+            if (replyGrab.done) {
+                res.json({header: header, comments: allComments });
+            }
+        }
+        });
+});
+//
+//
+</code></pre>
+
+<p>Now, open your browser again and double check that the data is being sent back. In next installments, we will take a lot at asynchronously fetching user comments, other options for language processing, and creating a ReactJS client to visualize data.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/www.mitchrivet.com" style="background-image: url(/www.mitchrivet.comimages/MR.gif)"><span class="hidden">Mitch Rivet's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/www.mitchrivet.com">Mitch Rivet</a></h4>
+  
+  <p>just a guy who likes computers</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Portland, Oregon</span>
+    <span class="author-link icon-link"><a href="http://www.mitchrivet.com">http://www.mitchrivet.com</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Analyzing%20Reddit%20Comments%3a%20Scraping%20%28Part%201%29&nbsp;-&nbsp;Mitch%20Rivet&amp;url=%2fwww.mitchrivet.com%2fanalyzing-reddit-comments-scraping-part-1"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fwww.mitchrivet.com%2fanalyzing-reddit-comments-scraping-part-1"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fwww.mitchrivet.com%2fanalyzing-reddit-comments-scraping-part-1&amp;description=Analyzing%20Reddit%20Comments%3a%20Scraping%20%28Part%201%29"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fwww.mitchrivet.com%2fanalyzing-reddit-comments-scraping-part-1"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'your_disqus_shortname';
+  var disqus_url = '\/www.mitchrivet.com\/analyzing-reddit-comments-scraping-part-1';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Mitch Rivet</a> </section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/www.mitchrivet.comjs/jquery.js"></script>
+    <script type="text/javascript" src="/www.mitchrivet.comjs/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/www.mitchrivet.comjs/index.js"></script>
+    
+</body>
+</html>
+
