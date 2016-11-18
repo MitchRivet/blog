@@ -6,7 +6,7 @@ tags=["tutorial", "beginner", "NodeJs", "ExpressJs", "data-science"]
 
 A place to start when getting into data science is to find data sets that are personally relevant and/or interesting. one place i like to get data to understand more about internet discourse is reddit.
 
-# How to scrape reddit
+## How to scrape reddit
 
 if we want to download data from reddit, we essentially have two options. one is making an oauth request which includes logging into the reddit api with a reddit account. the downside to this method is that each user is limited to 60 oauth requests per hour, which makes it hard to download an entire comment thread and all of the relevant user meta data from comments in the thread (popular discussions usually break over 1,000 comments).
 
@@ -24,8 +24,7 @@ lets use node and expressjs to do this. we start by npm installing and setting u
     var app = express();
 
     app.get('/scrape', (req, res) => {
-
-            res.json({message: 'this is your endpoint'});
+        res.json({message: 'this is your endpoint'});
     });
 
     app.listen('8081');     
@@ -161,12 +160,4 @@ app.get('/scrape', (req, res) => {
 //
 </code></pre>
 
-Now, open your browser again and double check that the data is being sent back.
-
-## Asynchronously fetching user data
-
-coming soon
-
-## Writing data to JSON File
-
-coming soon
+Now, open your browser again and double check that the data is being sent back. In next installments, we will take a lot at asynchronously fetching user comments, other options for language processing, and creating a ReactJS client to visualize data.

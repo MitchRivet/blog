@@ -1,4 +1,4 @@
-baseurl = "http://mitchrivet.github.io/"
+baseurl = "www.mitchrivet.com"
 title = "Mitch Rivet"
 languageCode = "en-us"
 disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration
@@ -12,23 +12,13 @@ paginate = 10
 [permalinks]
     # Optional. Change the permalink format for the 'post' content type.
     # The format shown here is the same one Jekyll/Octopress uses by default.
-    post = "/blog/:year/:month/:day/:title/"
-
-[taxonomies]
-    # Optional. Use if you want tags and lists.
-    category = "categories"
+    post = "/:slug"
 
 [[menu.main]]
   name = "Home"
   weight = -120
   identifier = "home"
   url = "/"
-
-[[menu.main]]
-  name = "Posts"
-  weight = -120
-  identifier = "posts"
-  url = "/posts"
 
 [[menu.main]]
   name = "Portolio"
@@ -57,7 +47,7 @@ paginate = 10
 
     author = "Mitch Rivet"
     authorlocation = "Portland, Oregon"
-    authorwebsite = "http://mitchrivet.com"
+    authorwebsite = "http://www.mitchrivet.com"
     bio= "just a guy who likes computers"
 
 
@@ -80,7 +70,6 @@ paginate = 10
     # Displays under the author name in the sidebar, keep it short.
     # You can use markdown here.
     tagline = "Your favourite quote or soundbite."
-
     # Text for the top menu link, which goes the root URL for the site.
     # Default (if omitted) is "Blog".
     home = "Blog"
@@ -95,7 +84,7 @@ paginate = 10
     bitbucket = "https://bitbucket.org/mitch_rivet/"
     bitbucketName="mitch_rivet"
     stackOverflow = ""
-    linkedin = "https://www.linkedin.com/in/mitchellrivet"
+    linkedinName = "mitchellrivet"
     googleplus = ""
     facebook = ""
     twitter = ""
